@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --accent: #ca9c5e;
+  --accent-secondary: #1a1b25;
+  --footer-background: #222222;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-footer-background: var(--footer-background);
+}
+
+@theme {
+  --animate-kenburns: kenburns-top 16s ease-out both;
+  --font-signiture: "allura";
+
+  @keyframes kenburns-top {
+    0% {
+      transform: scale(1) translateY(0);
+      transform-origin: 50% 16%;
+    }
+    100% {
+      transform: scale(1.15) translateY(-10px);
+      transform-origin: top;
+    }
+  }
+
+  @keyframes fill-up {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "DM sans", sans-serif;
+}
+
+.js-loading h1,
+.js-loading h2,
+.js-loading h3,
+.js-loading h4,
+.js-loading p,
+.js-loading li,
+.js-loading blockquote {
+  opacity: 0;
+}
