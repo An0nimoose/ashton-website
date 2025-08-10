@@ -2,7 +2,7 @@ import { FiMessageSquare, FiBookOpen, FiShoppingCart } from "react-icons/fi";
 
 export const FloatingActionBar = () => {
   return (
-    <div className="fixed top-1/4 -translate-y-1/2 right-0 z-50">
+    <div className="fixed top-1/4 -translate-y-1/2 right-0 z-50 hidden sm:block">
       <div className="bg-white p-2 flex flex-col gap-2 shadow-lg rounded-l-md">
         <button
           className="relative p-2 group hover:bg-gray-100 rounded-md transition-colors"

@@ -8,8 +8,16 @@ import {
   PopoverButton,
   PopoverPanel,
   Transition,
+  Dialog,
 } from "@headlessui/react";
-import { FiChevronDown, FiChevronRight } from "react-icons/fi";
+import {
+  FiMenu,
+  FiX,
+  FiChevronDown,
+  FiChevronRight,
+  FiArrowLeft,
+} from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Item {
   name: string;
@@ -108,11 +116,21 @@ export const Header = () => {
     null
   );
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<NavLink | null>(null);
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 35);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      const timer = setTimeout(() => setActiveSubmenu(null), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobileMenuOpen]);
 
   const handleMouseEnter = (menuName: string) => {
     if (closeTimeoutId) {
@@ -133,6 +151,12 @@ export const Header = () => {
     isScrolled ? "bg-white shadow-md" : "bg-transparent"
   }`;
   const linkColor = isScrolled ? "text-gray-800" : "text-white";
+
+  const menuVariants = {
+    initial: { x: "100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-100%", opacity: 0 },
+  };
 
   return (
     <header className={headerClasses}>
@@ -179,7 +203,6 @@ export const Header = () => {
                   <PopoverPanel className="absolute z-10 left-1/2 -translate-x-1/2 mt-3 p-4 bg-white rounded-lg shadow-xl">
                     {link.type === "images" && (
                       <div className="w-[60vw] max-w-5xl grid grid-cols-5 gap-4">
-                        {" "}
                         {link.items.map(
                           (item) =>
                             item.imageSrc && (
@@ -188,7 +211,6 @@ export const Header = () => {
                                 href={item.href}
                                 className="block group"
                               >
-                                {" "}
                                 <div className="overflow-hidden rounded-md">
                                   <Image
                                     src={item.imageSrc}
@@ -197,18 +219,17 @@ export const Header = () => {
                                     height={150}
                                     className="group-hover:scale-110 transition-transform duration-300"
                                   />
-                                </div>{" "}
+                                </div>
                                 <h4 className="mt-2 text-sm font-semibold text-gray-800 group-hover:text-accent">
                                   {item.name}
-                                </h4>{" "}
+                                </h4>
                               </Link>
                             )
-                        )}{" "}
+                        )}
                       </div>
                     )}
                     {link.type === "links" && (
                       <div className="w-56">
-                        {" "}
                         {link.items.map((item) => (
                           <Link
                             key={item.name}
@@ -217,14 +238,12 @@ export const Header = () => {
                           >
                             {item.name}
                           </Link>
-                        ))}{" "}
+                        ))}
                       </div>
                     )}
                     {link.type === "links_nested" && (
                       <div className="w-60">
-                        {" "}
                         <ul>
-                          {" "}
                           {link.items.map((item) => (
                             <li key={item.name}>
                               <Link
@@ -234,22 +253,18 @@ export const Header = () => {
                                 {item.name}
                               </Link>
                             </li>
-                          ))}{" "}
+                          ))}
                           {link.submenu && (
                             <li className="relative group">
-                              {" "}
                               <a
                                 href="#"
                                 className="p-2 text-gray-800 rounded-md hover:bg-gray-100 hover:text-accent flex justify-between items-center"
                               >
-                                {" "}
-                                {link.submenu.name}{" "}
-                                <FiChevronRight className="w-4 h-4" />{" "}
-                              </a>{" "}
+                                {link.submenu.name}
+                                <FiChevronRight className="w-4 h-4" />
+                              </a>
                               <div className="absolute left-full top-0 mt-[-8px] ml-1 p-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity">
-                                {" "}
                                 <ul>
-                                  {" "}
                                   {link.submenu.items.map((subItem) => (
                                     <li key={subItem.name}>
                                       <Link
@@ -259,12 +274,12 @@ export const Header = () => {
                                         {subItem.name}
                                       </Link>
                                     </li>
-                                  ))}{" "}
-                                </ul>{" "}
-                              </div>{" "}
+                                  ))}
+                                </ul>
+                              </div>
                             </li>
-                          )}{" "}
-                        </ul>{" "}
+                          )}
+                        </ul>
                       </div>
                     )}
                   </PopoverPanel>
@@ -273,18 +288,141 @@ export const Header = () => {
             ))}
           </nav>
 
-          <div>
+          <div className="hidden md:block">
             <Link
               href="tel:124545635"
               className={`font-bold text-2xl px-6 py-2 rounded-md transition-colors ${
-                isScrolled ? "text-accent" : " text-white hover:text-accentl"
+                isScrolled ? "text-accent" : "text-white hover:text-accent"
               }`}
             >
               (1)245-45635
             </Link>
           </div>
+
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className={`p-2 rounded-md ${linkColor}`}
+              aria-label="Open menu"
+            >
+              <FiMenu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
+
+      <Transition show={isMobileMenuOpen} as={Fragment}>
+        <Dialog
+          onClose={() => setIsMobileMenuOpen(false)}
+          className="relative z-50 md:hidden"
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-in-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-in-out duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+          </Transition.Child>
+
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
+          >
+            <Dialog.Panel className="fixed inset-y-0 left-0 w-full max-w-sm bg-white p-6 overflow-y-auto">
+              <div className="flex justify-end mb-8">
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-600 hover:bg-gray-100"
+                  aria-label="Close menu"
+                >
+                  <FiX className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="flex flex-col justify-center h-full">
+                <AnimatePresence mode="wait">
+                  {!activeSubmenu ? (
+                    <motion.div
+                      key="main-menu"
+                      variants={menuVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <ul className="space-y-4">
+                        {navLinks.map((link) => (
+                          <li key={link.name}>
+                            <button
+                              onClick={() => setActiveSubmenu(link)}
+                              className="text-2xl font-semibold text-gray-800 hover:text-accent w-full text-left p-2"
+                            >
+                              {link.name}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="submenu"
+                      variants={menuVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="space-y-4">
+                        <button
+                          onClick={() => setActiveSubmenu(null)}
+                          className="flex items-center gap-2 text-lg font-semibold text-gray-500 hover:text-gray-900 mb-4"
+                        >
+                          <FiArrowLeft /> Back
+                        </button>
+
+                        <ul className="space-y-4 pt-2">
+                          {activeSubmenu.items.map((item) => (
+                            <li key={item.name}>
+                              <Link
+                                href={item.href}
+                                className="block p-2 text-2xl font-semibold text-gray-800 rounded-md hover:text-accent"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                          {activeSubmenu.submenu &&
+                            activeSubmenu.submenu.items.map((subItem) => (
+                              <li key={subItem.name}>
+                                <Link
+                                  href={subItem.href}
+                                  className="block p-2 text-2xl font-semibold text-gray-800 rounded-md hover:text-accent"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </li>
+                            ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </Dialog.Panel>
+          </Transition.Child>
+        </Dialog>
+      </Transition>
     </header>
   );
 };

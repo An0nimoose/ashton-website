@@ -19,7 +19,6 @@ const AnimatedNumber = ({
 }) => {
   const ref = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const numericValue = parseInt(
     value.match(/[\d,.]+/)?.[0].replace(/,/g, "") || "0",
     10
@@ -74,15 +73,12 @@ const statImages = [
     size: "w-80 h-120",
   },
 ];
-
 const achievements = [
   { value: "10M", label: "Recovered Cost" },
   { value: "850+", label: "Global Customers" },
   { value: "98%", label: "Successful Cases" },
 ];
-
 const animatedWords = ["Achievement", "Success", "Stats"];
-
 const wordVariants: Variants = {
   hidden: { width: 0, transition: { duration: 0.5, ease: "easeInOut" } },
   visible: {
@@ -98,15 +94,14 @@ export const StatsSection = () => {
     const interval = setInterval(() => {
       setWordIndex((prevIndex) => (prevIndex + 1) % animatedWords.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="bg-white py-24 sm:py-32 ">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pb-[20vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex justify-center lg:justify-start">
+    <section className="bg-white py-8 sm:py-32">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+          <div className="hidden lg:flex justify-center">
             <div className="relative w-full max-w-md h-96 lg:h-[500px]">
               {statImages.map((image, index) => (
                 <div
@@ -125,53 +120,72 @@ export const StatsSection = () => {
           </div>
 
           <div className="flex flex-col">
-            <Image
-              src={"/civil-litigation.png"}
-              alt={"litigations"}
-              width={100}
-              height={100}
-              className="w-12 text-accent mb-4"
-            />
-            <div className="text-5xl font-bold text-gray-900 leading-tight">
-              <div className="flex items-baseline">
-                <span>Our</span>
-                <div className="relative overflow-hidden whitespace-nowrap ml-3">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={wordIndex}
-                      variants={wordVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
-                      className="inline-block text-accent border-r-2 border-black"
-                    >
-                      {animatedWords[wordIndex]}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
+            <div className="block lg:hidden mb-8">
+              <div className="flex flex-col items-center gap-4">
+                {statImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="w-full max-w-sm h-150 relative rounded-xl shadow-xl overflow-hidden"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                ))}
               </div>
-              <span>In Numbers</span>
             </div>
 
-            <p className="text-black font-bold leading-relaxed max-w-lg my-12">
-              We support businesses through periods of expansion, succession,
-              and all other important transitions. Today’s clients expect
-              convenience. Texting is already part of our daily lives and it’s
-              the preferred method of interaction.
-            </p>
-
-            <div className="flex flex-col sm:flex-row text-center sm:text-left gap-8 sm:gap-12">
-              {achievements.map((ach) => (
-                <div key={ach.label}>
-                  <AnimatedNumber
-                    value={ach.value}
-                    className="text-5xl font-bold text-gray-900"
-                  />
-                  <p className="mt-1 text-sm text-gray-500 font-medium">
-                    {ach.label}
-                  </p>
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+              <Image
+                src={"/civil-litigation.png"}
+                alt={"litigations"}
+                width={100}
+                height={100}
+                className="w-12 h-12 text-accent mb-4"
+              />
+              <div className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+                <div className="flex items-baseline justify-center lg:justify-start">
+                  <span>Our</span>
+                  <div className="relative overflow-hidden whitespace-nowrap ml-3">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={wordIndex}
+                        variants={wordVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        className="inline-block text-accent border-r-2 border-black"
+                      >
+                        {animatedWords[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
                 </div>
-              ))}
+                <span>In Numbers</span>
+              </div>
+
+              <p className="text-black font-bold leading-relaxed max-w-lg my-12">
+                We support businesses through periods of expansion, succession,
+                and all other important transitions. Today’s clients expect
+                convenience.
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center text-center gap-8 sm:gap-12">
+                {achievements.map((ach) => (
+                  <div key={ach.label}>
+                    <AnimatedNumber
+                      value={ach.value}
+                      className="text-5xl font-bold text-gray-900"
+                    />
+                    <p className="mt-1 text-sm text-gray-500 font-medium">
+                      {ach.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

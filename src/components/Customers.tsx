@@ -53,9 +53,9 @@ export const Customers = () => {
   return (
     <section className="relative z-10 -mt-24 overflow-hidden">
       <div className="mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-1 items-end lg:grid-cols-4">
-          <div className="lg:col-span-1 bg-white py-12 pr-8 lg:pr-12 -ml-[100vw] pl-[calc(100vw-50%+1rem)] sm:pl-[calc(100vw-50%+2rem)] lg:pl-[85vw]">
-            <div className="grid grid-cols-2 gap-x-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:items-end">
+          <div className="lg:col-span-1 bg-white px-4 py-12 sm:px-6 lg:px-0 lg:py-12 lg:pr-12 lg:-ml-[100vw] lg:pl-[85vw]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-8">
               {FIRM_LOGOS.map((logo) => (
                 <div
                   key={logo.src}
@@ -72,22 +72,21 @@ export const Customers = () => {
               ))}
             </div>
           </div>
-
-          <div className="lg:col-span-3 bg-gray-100 pt-16 pb-12 pl-8 lg:pl-12 -mr-[100vw] pr-[calc(100vw-50%+1rem)] sm:pr-[calc(100vw-50%+2rem)] lg:pr-[86vw] rounded-tl-2xl">
-            <div className="mb-8">
+          <div className="lg:col-span-3 bg-gray-100 pt-16 pb-12 px-4 sm:px-6 lg:px-0 lg:pt-16 lg:pb-12 lg:pl-12 lg:-mr-[100vw] lg:pr-[86vw] rounded-tl-2xl">
+            <div className="mb-8 text-center lg:text-left">
               <p className="mb-2 text-4xl font-semibold text-accent">
                 Trusted by
               </p>
               <h2 className="text-4xl font-bold text-black">Our Customers</h2>
             </div>
 
-            <div className="relative">
+            <div className="lg:relative">
               <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
                   {REVIEWS.map((review) => (
                     <div
                       key={review.id}
-                      className="min-w-0 flex-[0_0_100%] pr-8"
+                      className="min-w-0 flex-[0_0_100%] px-2 lg:px-0 lg:pr-8"
                     >
                       <blockquote className="text-gray-600 mb-6">
                         {review.text}
@@ -114,7 +113,24 @@ export const Customers = () => {
                 </div>
               </div>
 
-              <div className="absolute top-1/2 -translate-y-1/2 right-0 flex items-center gap-2 transform">
+              <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 right-0 items-center gap-2">
+                <button
+                  onClick={scrollPrev}
+                  className="bg-white rounded-full p-3 shadow-md hover:bg-gray-200 transition-colors"
+                  aria-label="Previous review"
+                >
+                  <BsArrowLeft className="w-5 h-5 text-gray-700" />
+                </button>
+                <button
+                  onClick={scrollNext}
+                  className="bg-white rounded-full p-3 shadow-md hover:bg-gray-200 transition-colors"
+                  aria-label="Next review"
+                >
+                  <BsArrowRight className="w-5 h-5 text-gray-700" />
+                </button>
+              </div>
+
+              <div className="mt-8 flex items-center justify-center gap-4 lg:hidden">
                 <button
                   onClick={scrollPrev}
                   className="bg-white rounded-full p-3 shadow-md hover:bg-gray-200 transition-colors"

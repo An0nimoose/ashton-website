@@ -5,7 +5,14 @@ import Link from "next/link";
 import { PartnersCard } from "./PartnersCard";
 import Image from "next/image";
 
-const PARTNERS_DATA = [
+interface Partner {
+  name: string;
+  role: string;
+  imageSrc: string;
+  href: string;
+}
+
+const PARTNERS_DATA: Partner[] = [
   { name: "Alisia", role: "Young", imageSrc: "/partners/1.jpg", href: "#" },
   {
     name: "Emile Heskey",
@@ -34,39 +41,41 @@ export const PartnersSection = () => {
   });
 
   return (
-    <section className="relative z-10 overflow-hidden">
+    <section className="relative z-10 overflow-x-hidden">
       <div className="mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-1 items-end lg:grid-cols-4">
-          <div className="lg:col-span-1 bg-white py-16 pr-8 lg:pr-60 -ml-[100vw] pl-[90vw]">
-            <Image
-              src={"/law.png"}
-              alt={"law"}
-              width={100}
-              height={100}
-              className="w-12 text-accent mb-4"
-            />
+        <div className="grid grid-cols-1 items-center lg:grid-cols-4">
+          <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-1 lg:py-16 lg:pr-60 lg:-ml-[100vw] lg:pl-[90vw]">
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+              <Image
+                src={"/law.png"}
+                alt={"law"}
+                width={48}
+                height={48}
+                className="text-accent mb-4"
+              />
 
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Partners at Ashton
-            </h2>
-            <p className="text-black font-bold mb-8">
-              We specialised in family law divorce, civil partnerships
-            </p>
-            <Link
-              href="/team"
-              className="inline-block bg-accent text-white font-semibold px-8 py-3 rounded-full hover:-translate-y-1 transition-transform duration-300"
-            >
-              View Our Team
-            </Link>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Partners at Ashton
+              </h2>
+              <p className="text-black font-bold mb-8 max-w-xs">
+                We specialised in family law divorce, civil partnerships
+              </p>
+              <Link
+                href="/team"
+                className="inline-block bg-accent text-white font-semibold px-8 py-3 rounded-full hover:-translate-y-1 transition-transform duration-300"
+              >
+                View Our Team
+              </Link>
+            </div>
           </div>
 
-          <div className="lg:col-span-3 bg-accent-secondary pt-16 pb-12 pl-8 lg:pl-12 -mr-[100vw] pr-[86vw] rounded-tl-2xl">
+          <div className="bg-accent-secondary pt-16 pb-12 px-4 sm:px-6 lg:col-span-3 lg:pl-12 lg:-mr-[100vw] lg:pr-[86vw] lg:rounded-tl-2xl">
             <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex gap-4">
+              <div className="flex -ml-4">
                 {PARTNERS_DATA.map((partner) => (
                   <div
                     key={partner.name}
-                    className="min-w-0 flex-shrink-0 basis-4/5 sm:basis-1/2 md:basis-1/3 xl:basis-1/4"
+                    className="min-w-0 flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 xl:basis-1/4 pl-4"
                   >
                     <PartnersCard {...partner} />
                   </div>

@@ -18,7 +18,7 @@ export const Footer = () => {
 
           <div className="flex flex-1 flex-col lg:max-w-4xl">
             <div className="w-full mb-16">
-              <form className="flex">
+              <form>
                 <input
                   type="email"
                   placeholder="Your email address"
@@ -27,7 +27,7 @@ export const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-accent text-white px-8 py-3 font-semibold rounded-full hover:opacity-90 transition-opacity ml-1"
+                  className="bg-accent text-white px-8 py-3 font-semibold rounded-full hover:opacity-90 transition-opacity mt-4"
                 >
                   Subscribe
                 </button>

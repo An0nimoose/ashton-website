@@ -3,7 +3,7 @@ import { FiPhone, FiClock, FiMail } from "react-icons/fi";
 
 export const TopBar = () => {
   return (
-    <div className="hidden md:block bg-white text-sm text-gray-600 border-b border-gray-200">
+    <div className="bg-white text-sm text-gray-600 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-10">
           <div className="flex items-center space-x-6">
@@ -11,7 +11,7 @@ export const TopBar = () => {
               <FiPhone className="w-4 h-4" />
               <span>1-985-245-45635</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <FiClock className="w-4 h-4" />
               <span>Mon - Fri 09:00 - 17:00</span>
             </div>
@@ -20,7 +20,7 @@ export const TopBar = () => {
           <div className="flex items-center space-x-6">
             <a
               href="mailto:contact@ashton.com"
-              className="flex items-center gap-2 hover:text-accent"
+              className="hidden md:flex items-center gap-2 hover:text-accent"
             >
               <FiMail className="w-4 h-4" />
               <span>contact@ashton.com</span>
