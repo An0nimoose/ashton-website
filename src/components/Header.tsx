@@ -3,6 +3,7 @@
 import { useState, useEffect, Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Popover,
   PopoverButton,
@@ -54,7 +55,7 @@ const navLinks: NavLink[] = [
       { name: "Contact Us 1", href: "#" },
       { name: "Contact Us 2", href: "#" },
       { name: "Contact Us 3", href: "#" },
-      { name: "Gallery", href: "#" },
+      { name: "Gallery", href: "gallery" },
       { name: "Shop", href: "#" },
     ],
   },
@@ -64,7 +65,7 @@ const navLinks: NavLink[] = [
     items: [
       { name: "Practice Areas 1", href: "#" },
       { name: "Practice Areas 2", href: "#" },
-      { name: "Practice Areas 3", href: "#" },
+      { name: "Practice Areas 3", href: "practice-areas-3" },
     ],
   },
   {
@@ -81,7 +82,7 @@ const navLinks: NavLink[] = [
     items: [
       { name: "Portfolio Classic", href: "#" },
       { name: "Portfolio Grid", href: "#" },
-      { name: "Portfolio Grid Overlay", href: "#" },
+      { name: "Portfolio Grid Overlay", href: "portfolio-grid-overlay" },
       { name: "Portfolio 3D Overlay", href: "#" },
       { name: "Portfolio Contain", href: "#" },
       { name: "Portfolio Carousel", href: "#" },
@@ -119,11 +120,18 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<NavLink | null>(null);
 
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 35);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (isHomePage) {
+      const handleScroll = () => setIsScrolled(window.scrollY > 35);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      setIsScrolled(true);
+    }
+  }, [isHomePage]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -147,10 +155,13 @@ export const Header = () => {
     setCloseTimeoutId(id);
   };
 
+  const isTransparent = isHomePage && !isScrolled;
+
   const headerClasses = `sticky top-0 w-full z-50 transition-all duration-300 ${
-    isScrolled ? "bg-white shadow-md" : "bg-transparent"
+    isTransparent ? "bg-transparent" : "bg-white shadow-md"
   }`;
-  const linkColor = isScrolled ? "text-gray-800" : "text-white";
+
+  const linkColor = isTransparent ? "text-white" : "text-gray-800";
 
   const menuVariants = {
     initial: { x: "100%", opacity: 0 },
@@ -169,7 +180,7 @@ export const Header = () => {
                 alt="Ashton Law Logo"
                 width={150}
                 height={60}
-                className={isScrolled ? "invert" : ""}
+                className={!isTransparent ? "invert" : ""}
               />
             </Link>
           </div>
