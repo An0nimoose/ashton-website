@@ -20,6 +20,7 @@ import {
 } from "react-icons/fi";
 import { TbZoomReset } from "react-icons/tb";
 import { FaFacebookF, FaTwitter, FaPinterest } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 interface Image {
   id: number;
@@ -34,6 +35,7 @@ interface LightboxProps {
 }
 
 export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
+  const t = useTranslations("Gallery");
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     startIndex: startIndex,
@@ -141,7 +143,7 @@ export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
         <div className="absolute top-4 right-4 z-50 flex items-center gap-4 text-gray-800">
           <button
             className="hover:text-black"
-            title="Reset Zoom"
+            title={t("lightbox.resetZoom")}
             onClick={(e) => {
               e.stopPropagation();
               setIsZoomed(false);
@@ -153,7 +155,7 @@ export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
           <Popover className="relative">
             <Popover.Button
               className="hover:text-black focus:outline-none"
-              title="Share"
+              title={t("lightbox.share")}
               onClick={(e) => e.stopPropagation()}
             >
               <FiShare2 size={24} />
@@ -173,7 +175,7 @@ export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
                   onClick={(e) => e.stopPropagation()}
                 >
                   <span className="text-sm font-semibold text-gray-700 px-1 text-center">
-                    Share On
+                    {t("lightbox.shareOn")}
                   </span>
                   <div className="flex items-center">
                     <a
@@ -208,7 +210,7 @@ export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
 
           <button
             className="hover:text-black"
-            title="Fullscreen"
+            title={t("lightbox.fullscreen")}
             onClick={(e) => {
               e.stopPropagation();
               handleFullscreen();
@@ -216,7 +218,11 @@ export const Lightbox = ({ images, startIndex, onClose }: LightboxProps) => {
           >
             <FiMaximize size={24} />
           </button>
-          <button className="hover:text-black" onClick={onClose} title="Close">
+          <button
+            className="hover:text-black"
+            onClick={onClose}
+            title={t("lightbox.close")}
+          >
             <FiX size={30} />
           </button>
         </div>

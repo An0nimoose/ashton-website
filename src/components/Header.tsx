@@ -19,6 +19,7 @@ import {
   FiArrowLeft,
 } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface Item {
   name: string;
@@ -111,6 +112,7 @@ const navLinks: NavLink[] = [
 ];
 
 export const Header = () => {
+  const t = useTranslations("Layout");
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(
@@ -177,7 +179,7 @@ export const Header = () => {
             <Link href="/">
               <Image
                 src="/logo.png"
-                alt="Ashton Law Logo"
+                alt={t("logoAlt")}
                 width={150}
                 height={60}
                 className={!isTransparent ? "invert" : ""}
@@ -301,12 +303,12 @@ export const Header = () => {
 
           <div className="hidden md:block">
             <Link
-              href="tel:124545635"
+              href={`tel:${t("phone")}`}
               className={`font-bold text-2xl px-6 py-2 rounded-md transition-colors ${
                 isScrolled ? "text-accent" : "text-white hover:text-accent"
               }`}
             >
-              (1)245-45635
+              {t("phone")}
             </Link>
           </div>
 
@@ -314,7 +316,7 @@ export const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className={`p-2 rounded-md ${linkColor}`}
-              aria-label="Open menu"
+              aria-label={t("openMenu")}
             >
               <FiMenu className="w-6 h-6" />
             </button>
@@ -353,7 +355,7 @@ export const Header = () => {
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 rounded-md text-gray-600 hover:bg-gray-100"
-                  aria-label="Close menu"
+                  aria-label={t("closeMenu")}
                 >
                   <FiX className="w-6 h-6" />
                 </button>
@@ -397,7 +399,7 @@ export const Header = () => {
                           onClick={() => setActiveSubmenu(null)}
                           className="flex items-center gap-2 text-lg font-semibold text-gray-500 hover:text-gray-900 mb-4"
                         >
-                          <FiArrowLeft /> Back
+                          <FiArrowLeft /> {t("back")}
                         </button>
 
                         <ul className="space-y-4 pt-2">

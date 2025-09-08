@@ -1,9 +1,9 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
-import Link from "next/link";
 import { PartnersCard } from "./PartnersCard";
 import Image from "next/image";
+import { useTranslations, useMessages } from "next-intl";
 
 interface Partner {
   name: string;
@@ -12,39 +12,28 @@ interface Partner {
   href: string;
 }
 
-const PARTNERS_DATA: Partner[] = [
-  { name: "Alisia", role: "Young", imageSrc: "/partners/1.jpg", href: "#" },
-  {
-    name: "Emile Heskey",
-    role: "Partner",
-    imageSrc: "/partners/2.jpg",
-    href: "#",
-  },
-  {
-    name: "Angera Mark",
-    role: "Partner",
-    imageSrc: "/partners/3.jpg",
-    href: "#",
-  },
-  {
-    name: "Steve Smith",
-    role: "Partner",
-    imageSrc: "/partners/4.jpg",
-    href: "#",
-  },
-];
-
 export const PartnersSection = () => {
   const [emblaRef] = useEmblaCarousel({
     align: "start",
     loop: true,
   });
+  const t = useTranslations("PartnersSection");
+  const msgs = useMessages();
+  const partnersArr: { name: string; role: string }[] = (msgs.PartnersSection
+    ?.partners ?? []) as { name: string; role: string }[];
+
+  const PARTNERS_DATA: Partner[] = partnersArr.map((p, i) => ({
+    name: p.name,
+    role: p.role,
+    imageSrc: `/Partners/${i + 1}.jpg`,
+    href: "#",
+  }));
 
   return (
-    <section className="relative z-10 overflow-x-hidden">
+    <section className="relative z-10 -mt-24 overflow-hidden">
       <div className="mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-1 items-center lg:grid-cols-4">
-          <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-1 lg:py-16 lg:pr-60 lg:-ml-[100vw] lg:pl-[90vw]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:items-end">
+          <div className="lg:col-span-1 bg-white px-4 py-12 sm:px-6 lg:px-0 lg:py-12 lg:pr-12 lg:-ml-[100vw] lg:pl-[85vw]">
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <Image
                 src={"/law.png"}
@@ -55,17 +44,8 @@ export const PartnersSection = () => {
               />
 
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Partners at Ashton
+                {t("title")}
               </h2>
-              <p className="text-black font-bold mb-8 max-w-xs">
-                We specialised in family law divorce, civil partnerships
-              </p>
-              <Link
-                href="/team"
-                className="inline-block bg-accent text-white font-semibold px-8 py-3 rounded-full hover:-translate-y-1 transition-transform duration-300"
-              >
-                View Our Team
-              </Link>
             </div>
           </div>
 

@@ -2,41 +2,27 @@
 
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import { useMessages } from "next-intl";
 import { useCallback } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
-const FIRM_LOGOS = [
-  { src: "/firmLogos/1.png", alt: "Alex & Partners" },
-  { src: "/firmLogos/2.png", alt: "The Justice" },
-  { src: "/firmLogos/3.png", alt: "IK Law Firm" },
-  { src: "/firmLogos/4.png", alt: "Law Firm" },
-];
-
-const REVIEWS = [
-  {
-    id: 1,
-    text: "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil.",
-    author: "Simon Doe",
-    place: "MasterCard Co.",
-    imageSrc: "/reviews/1.jpg",
-  },
-  {
-    id: 2,
-    text: "Authentic Cliche, schlitz narwhal post-ironic. Enamel pin vegan messenger bag you probably haven't heard of them, deep v banjo. Butcher meditation occupy cray.",
-    author: "Charlie Love",
-    place: "CostCo Inc.",
-    imageSrc: "/reviews/2.jpg",
-  },
-  {
-    id: 3,
-    text: "Tattooed austin trust fund, subway tile vinyl butcher helvetica raclette. Normcore listicle gochujang, flannel whatever snackwave waistcoat tacos glossier.",
-    author: "Johny Singa",
-    place: "Amazon Inc.",
-    imageSrc: "/reviews/3.jpg",
-  },
-];
-
 export const Customers = () => {
+  const msgs = useMessages();
+  const FIRM_LOGOS: { src: string; alt: string }[] = (msgs.Customers
+    ?.firmLogos ?? []) as { src: string; alt: string }[];
+  const REVIEWS: {
+    id?: number;
+    text: string;
+    author: string;
+    place?: string;
+    imageSrc?: string;
+  }[] = (msgs.Customers?.reviews ?? []) as {
+    id?: number;
+    text: string;
+    author: string;
+    place?: string;
+    imageSrc?: string;
+  }[];
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -83,9 +69,9 @@ export const Customers = () => {
             <div className="lg:relative">
               <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
-                  {REVIEWS.map((review) => (
+                  {REVIEWS.map((review, idx) => (
                     <div
-                      key={review.id}
+                      key={review.id ?? idx}
                       className="min-w-0 flex-[0_0_100%] px-2 lg:px-0 lg:pr-8"
                     >
                       <blockquote className="text-gray-600 mb-6">
@@ -93,7 +79,7 @@ export const Customers = () => {
                       </blockquote>
                       <div className="flex items-center gap-4">
                         <Image
-                          src={review.imageSrc}
+                          src={review.imageSrc || "/reviews/1.jpg"}
                           alt={review.author}
                           width={60}
                           height={60}

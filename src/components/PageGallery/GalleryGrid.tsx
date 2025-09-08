@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Lightbox } from "./LightBox";
+import { useTranslations } from "next-intl";
 
 interface Image {
   id: number;
@@ -29,16 +30,18 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
     document.body.style.overflow = "auto";
   };
 
+  const t = useTranslations("Gallery");
+
   return (
     <>
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-base font-semibold leading-7 text-accent">
-              GALLERY STYLES
+              {t("stylesLabel")}
             </p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Gallery Grid
+              {t("grid.title")}
             </h2>
           </div>
           <div className="mx-auto mt-16 grid max-w-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

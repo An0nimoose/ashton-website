@@ -1,0 +1,310 @@
+{
+  "Hero": {
+    "title1": "وکلای برجسته",
+    "title2": "کاهش ریسک و محافظت",
+    "desc": "محافظت با قلب. در کنار شما هستیم. نیازهای خاص، وکلای خاص می‌طلبد.",
+    "appointment": "رزرو وقت مشاوره",
+    "caseStudies": "مطالعات موردی"
+  },
+  "PracticeAreasSection": {
+    "quote": "در اشتون، اجازه دهید به شما کمک کنیم تا مشکلات را حل کنید تا بتوانید بر ماموریت خود تمرکز کنید. ما در دوره‌های توسعه، جانشینی و سایر انتقالات مهم از کسب‌وکارها حمایت می‌کنیم.",
+    "signature": "جان کورنر",
+    "expertises": "تخصص‌های ما",
+    "title": "زمینه‌های فعالیت",
+    "areas": [
+      "ادغام و تملک",
+      "حل اختلافات",
+      "بازنشستگی و مزایا",
+      "بهداشت و درمان و پزشکی",
+      "امنیت ملی"
+    ]
+  },
+  "StatsSection": {
+    "achievements": [
+      { "value": "۱۰ میلیون", "label": "هزینه بازیابی شده" },
+      { "value": "۸۵۰+", "label": "مشتریان جهانی" },
+      { "value": "۹۸٪", "label": "پرونده‌های موفق" }
+    ],
+    "animatedWords": ["دستاورد", "موفقیت", "آمار"],
+    "partnersTitle": "شرکای اشتون",
+    "partnersDesc": "ما در طلاق، مشارکت‌های مدنی و خانواده تخصص داریم",
+    "viewTeam": "مشاهده تیم ما"
+  },
+  "PartnersSection": {
+    "title": "شرکای اشتون",
+    "desc": "ما در طلاق، مشارکت‌های مدنی و خانواده تخصص داریم",
+    "viewTeam": "مشاهده تیم ما",
+    "partners": [
+      { "name": "آلیسیا", "role": "جوان" },
+      { "name": "امیله هسکی", "role": "شریک" },
+      { "name": "انگرا مارک", "role": "شریک" },
+      { "name": "استیو اسمیت", "role": "شریک" }
+    ]
+  },
+  "CallToAction": {
+    "title1": "حقوقی",
+    "title2": "سوالی دارید؟",
+    "title3": "ما رسیدگی می‌کنیم.",
+    "appointment": "رزرو وقت مشاوره"
+  },
+  "ConsultationSection": {
+    "expertises": "تخصص‌های ما",
+    "title": "مشاوره رایگان",
+    "desc": "ما در دوره‌های توسعه، جانشینی و سایر انتقالات مهم از کسب‌وکارها حمایت می‌کنیم.",
+    "form": {
+      "name": "نام شما",
+      "email": "ایمیل شما",
+      "service": "خدمت",
+      "phone": "تلفن",
+      "message": "پیام",
+      "submit": "رزرو وقت مشاوره"
+    },
+    "services": [
+      "ادغام و تملک",
+      "حل اختلافات",
+      "بازنشستگی و مزایا",
+      "بهداشت و درمان",
+      "حقوق امنیت ملی"
+    ]
+  },
+  "Customers": {
+    "trustedBy": "مورد اعتماد",
+    "title": "مشتریان ما",
+    "firmLogos": [
+      { "src": "/firmLogos/1.png", "alt": "شرکت ۱" },
+      { "src": "/firmLogos/2.png", "alt": "شرکت ۲" },
+      { "src": "/firmLogos/3.png", "alt": "شرکت ۳" },
+      { "src": "/firmLogos/4.png", "alt": "شرکت ۴" }
+    ],
+    "reviews": [
+      {
+        "text": "مه سنت شلیتز، تمپور دویس سینگل اوریجین کافی ای نکس لول فنی پک نوسترود. فوتوبوث انیم ۸-بیت هلا، پی‌بی‌آر ۳ ولف مون بیرد هلوتیکا. سالویا اسه نیهیل.",
+        "author": "سایمون دو",
+        "place": "مسترکارت"
+      },
+      {
+        "text": "اوتنتیک کلیشه، شلیتز ناروال پست-آیرونیک. انامل پین وگان مسنجر بگ که احتمالاً نشنیده‌اید، دیپ وی بنجو. بوچر مدیتیشن اشغال کرای.",
+        "author": "چارلی لاو",
+        "place": "کاستکو"
+      },
+      {
+        "text": "تتو شده آستین تراست فاند، ساب‌وی تایل وینیل بوچر هلوتیکا راکلت. نورمکور لیستیکل گوچوجانگ، فلانل واتور اسنک‌ویو ویست‌کوت تاکو گلاسیه.",
+        "author": "جانی سینگا",
+        "place": "آمازون"
+      }
+    ]
+  },
+  "Practice3": {
+    "hero": {
+      "eyebrow": "خدمات ما",
+      "title": "زمینه‌های فعالیت"
+    },
+    "partnerSection": {
+      "eyebrow": "شرکای اشتون",
+      "heading": "متعهد به کمک به موفقیت مشتریانمان",
+      "accordion": [
+        {
+          "title": "ادغام و تملک",
+          "content": "پیامک وکلا فقط به نفع مشتریان نیست. می‌تواند با سرعت بخشیدن به پاسخ‌ها، بهره‌وری دفتر شما را افزایش دهد."
+        },
+        {
+          "title": "بهداشت و درمان و پزشکی",
+          "content": "داشتن نظرات مثبت آنلاین بیشتر باعث می‌شود که احتمال دیده شدن شما در جایی که مردم جستجو می‌کنند افزایش یابد."
+        },
+        {
+          "title": "حقوق امنیت ملی",
+          "content": "پیامک وکلا می‌تواند راه موثری برای ارتباط با مشتریان باشد، اما پیچیدگی‌هایی نیز دارد."
+        }
+      ],
+      "services": [
+        {
+          "title": "حقوق کیفری",
+          "icon": "/practiceAreas3/partnerSection/1.png"
+        },
+        {
+          "title": "جبران خسارت ناشی از صدمات",
+          "icon": "/practiceAreas3/partnerSection/2.png"
+        },
+        {
+          "title": "وصیت‌نامه و املاک",
+          "icon": "/practiceAreas3/partnerSection/3.png"
+        },
+        {
+          "title": "دادخواهی تجاری",
+          "icon": "/practiceAreas3/partnerSection/4.png"
+        }
+      ]
+    },
+    "customerSection": {
+      "eyebrow": "مورد اعتماد",
+      "title": "مشتریان ما",
+      "reviews": [
+        {
+          "id": 1,
+          "text": "افرادی که خانه خود را می‌سازند معمولاً بسیار شجاع هستند. این افراد نسبت به زندگی کنجکاو هستند.",
+          "author": "سایمون دو",
+          "place": "مسترکارت",
+          "imageSrc": "/reviews/1.jpg"
+        },
+        {
+          "id": 2,
+          "text": "اوتنتیک کلیشه، شلیتز ناروال پست-آیرونیک.",
+          "author": "چارلی لاو",
+          "place": "کاستکو",
+          "imageSrc": "/reviews/2.jpg"
+        },
+        {
+          "id": 3,
+          "text": "تتو شده آستین تراست فاند، ساب‌وی تایل وینیل.",
+          "author": "جانی سینگا",
+          "place": "آمازون",
+          "imageSrc": "/reviews/3.jpg"
+        }
+      ]
+    },
+    "contactSection": {
+      "eyebrow": "ارزیابی رایگان پرونده",
+      "title": "امروز با ما تماس بگیرید",
+      "phone": "(1)245-45635",
+      "cta": "رزرو وقت مشاوره"
+    }
+  },
+  "Gallery": {
+    "stylesLabel": "قالب‌های گالری",
+    "grid": { "title": "شبکه گالری" },
+    "masonry": { "title": "گالری ماسنری" },
+    "horizontal": { "title": "گالری افقی", "prev": "قبلی", "next": "بعدی" },
+    "justified": { "title": "گالری جاستفاید" },
+    "lightbox": {
+      "resetZoom": "بازنشانی بزرگنمایی",
+      "share": "اشتراک‌گذاری",
+      "shareOn": "اشتراک‌گذاری در",
+      "fullscreen": "تمام صفحه",
+      "close": "بستن"
+    }
+  },
+  "PortfolioGrid": {
+    "hero": {
+      "eyebrow": "مطالعات موردی",
+      "title": "ما روابطی می‌سازیم که الهام‌بخش است",
+      "animatedWords": ["دستاورد", "موفقیت", "رشد"]
+    },
+    "filters": [
+      { "label": "همه", "slug": "all" },
+      { "label": "اتفاقی", "slug": "accidental" },
+      { "label": "مالی", "slug": "financial" },
+      { "label": "قانون دولتی", "slug": "government-law" }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "imgSrc": "/portfolioGridOverlay/1.jpg",
+        "title": "قوانین آیین دادرسی مدنی",
+        "subtitle": "قانون وام‌دهی",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 2,
+        "imgSrc": "/portfolioGridOverlay/2.jpg",
+        "title": "املاک و مستغلات",
+        "subtitle": "مشاوره سرمایه گذاری",
+        "categories": ["financial", "government-law"]
+      },
+      {
+        "id": 3,
+        "imgSrc": "/portfolioGridOverlay/3.jpg",
+        "title": "مقابله مدنی",
+        "subtitle": "مالیات و مزایا",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 4,
+        "imgSrc": "/portfolioGridOverlay/4.jpg",
+        "title": "اخراج ناعادلانه",
+        "subtitle": "صندوق خصوصی",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 5,
+        "imgSrc": "/portfolioGridOverlay/5.jpg",
+        "title": "وظیفه سازگاری",
+        "subtitle": "قانون بازنشستگی",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 6,
+        "imgSrc": "/portfolioGridOverlay/6.jpg",
+        "title": "قانون کار",
+        "subtitle": "قانون ساخت و ساز",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 7,
+        "imgSrc": "/portfolioGridOverlay/7.jpg",
+        "title": "هیئت روابط کار",
+        "subtitle": "ادغام و تملک",
+        "categories": ["financial", "government-law"]
+      },
+      {
+        "id": 8,
+        "imgSrc": "/portfolioGridOverlay/8.jpg",
+        "title": "کمک از مشاور",
+        "subtitle": "قانون فرانشیز",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 9,
+        "imgSrc": "/portfolioGridOverlay/9.jpg",
+        "title": "Forum non Convenient",
+        "subtitle": "قانون خرده‌فروشی",
+        "categories": ["accidental", "financial"]
+      }
+    ],
+    "freeConsultation": {
+      "eyebrow": "ما با مشتریان جهانی همکاری کرده‌ایم",
+      "title": "مشاوره رایگان",
+      "text": "در زمینه حرفه‌ای اغلب اتفاق می‌افتد که مشتریان خصوصی یا شرکتی در نظر دارند مطلبی منتشر شود در حالی که محتوای واقعی هنوز آماده نیست.",
+      "cta": "رزرو وقت مشاوره",
+      "firmLogos": [
+        { "src": "/firmLogos/1.png", "alt": "کاکیولا و چکش قانون" },
+        { "src": "/firmLogos/2.png", "alt": "شرکت حقوقی عدالت" },
+        { "src": "/firmLogos/3.png", "alt": "پترسون بیکر" },
+        { "src": "/firmLogos/4.png", "alt": "دفتر حقوقی" }
+      ]
+    }
+  },
+  "Layout": {
+    "phone": "(1)245-45635",
+    "hours": "دوشنبه تا جمعه 09:00 - 17:00",
+    "email": "contact@ashton.com",
+    "logoAlt": "لوگوی اشتون",
+    "openMenu": "باز کردن منو",
+    "closeMenu": "بستن منو",
+    "back": "بازگشت",
+    "newsletterPlaceholder": "آدرس ایمیل شما",
+    "subscribe": "عضویت",
+    "links": {
+      "practiceAreas": "زمینه‌های فعالیت",
+      "attorney": "وکیل",
+      "blog": "بلاگ",
+      "contact": "تماس با ما",
+      "privacy": "حریم خصوصی",
+      "legal": "توافقنامه حقوقی"
+    },
+    "cities": {
+      "ny": {
+        "title": "نیویورک",
+        "addressLine1": "9712 West Road",
+        "cityLine": "بروکلین,",
+        "postal": "NY 11208"
+      },
+      "sf": {
+        "title": "سان فرانسیسکو",
+        "addressLine1": "501 3rd St",
+        "cityLine": "سان فرانسیسکو",
+        "postal": "CA 94107"
+      }
+    },
+    "copyright": "© تمامی حقوق برای Ashton محفوظ است"
+  }
+}

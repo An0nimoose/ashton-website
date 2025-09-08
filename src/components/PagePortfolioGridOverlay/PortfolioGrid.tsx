@@ -3,89 +3,30 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
-const portfolioItems = [
-  {
-    id: 1,
-    imgSrc: "/portfolioGridOverlay/1.jpg",
-    title: "Rules of Civil Procedure",
-    subtitle: "Lending Law",
-    categories: ["accidental", "government-law"],
-  },
-  {
-    id: 2,
-    imgSrc: "/portfolioGridOverlay/2.jpg",
-    title: "Property & Real Estate",
-    subtitle: "Investment Consulting",
-    categories: ["financial", "government-law"],
-  },
-  {
-    id: 3,
-    imgSrc: "/portfolioGridOverlay/3.jpg",
-    title: "Civil Litigation",
-    subtitle: "Tax & Benefits",
-    categories: ["accidental", "government-law"],
-  },
-  {
-    id: 4,
-    imgSrc: "/portfolioGridOverlay/4.jpg",
-    title: "Unjust Dismissal",
-    subtitle: "Private Fund",
-    categories: ["accidental", "financial"],
-  },
-  {
-    id: 5,
-    imgSrc: "/portfolioGridOverlay/5.jpg",
-    title: "Duty to Accommodate",
-    subtitle: "Retirement Law",
-    categories: ["accidental", "financial"],
-  },
-  {
-    id: 6,
-    imgSrc: "/portfolioGridOverlay/6.jpg",
-    title: "The Labour Code",
-    subtitle: "Construction Law",
-    categories: ["accidental", "government-law"],
-  },
-  {
-    id: 7,
-    imgSrc: "/portfolioGridOverlay/7.jpg",
-    title: "Labour Relations Board",
-    subtitle: "Mergers & Acquisitions",
-    categories: ["financial", "government-law"],
-  },
-  {
-    id: 8,
-    imgSrc: "/portfolioGridOverlay/8.jpg",
-    title: "Assistance of Counsel",
-    subtitle: "Franchising Law",
-    categories: ["accidental", "financial"],
-  },
-  {
-    id: 9,
-    imgSrc: "/portfolioGridOverlay/9.jpg",
-    title: "Forum non Convenient",
-    subtitle: "Retail Law",
-    categories: ["accidental", "financial"],
-  },
-];
-
-const filters = [
-  { label: "All", slug: "all" },
-  { label: "Accidental", slug: "accidental" },
-  { label: "Financial", slug: "financial" },
-  { label: "Government Law", slug: "government-law" },
-];
+import { useMessages } from "next-intl";
 
 const PortfolioGrid = () => {
   const [activeSlug, setActiveSlug] = useState<string>("all");
+  const msgs = useMessages();
 
-  const filteredItems = useMemo(() => {
-    if (activeSlug === "all") return portfolioItems;
-    return portfolioItems.filter((item) =>
-      item.categories.includes(activeSlug)
-    );
-  }, [activeSlug]);
+  const { filters, filteredItems } = useMemo(() => {
+    const items = (msgs.PortfolioGrid?.items ?? []) as {
+      id: number;
+      imgSrc: string;
+      title: string;
+      subtitle: string;
+      categories: string[];
+    }[];
+    const fltrs = (msgs.PortfolioGrid?.filters ?? []) as {
+      label: string;
+      slug: string;
+    }[];
+    const filtered =
+      activeSlug === "all"
+        ? items
+        : items.filter((item) => item.categories.includes(activeSlug));
+    return { filters: fltrs, filteredItems: filtered };
+  }, [msgs, activeSlug]);
 
   return (
     <section className="bg-white py-6 sm:py-12">

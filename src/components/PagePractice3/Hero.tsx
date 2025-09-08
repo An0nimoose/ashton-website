@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("Practice3");
   return (
     <section className="relative h-[600px] flex items-center justify-center text-white">
       <Image
@@ -14,9 +16,11 @@ const Hero = () => {
 
       <div className="relative z-10 text-center">
         <p className="text-sm font-bold uppercase tracking-widest">
-          OUR SERVICES
+          {t("hero.eyebrow")}
         </p>
-        <h1 className="mt-4 text-5xl md:text-7xl font-bold">Practice Areas</h1>
+        <h1 className="mt-4 text-5xl md:text-7xl font-bold">
+          {t("hero.title")}
+        </h1>
       </div>
     </section>
   );

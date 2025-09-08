@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const ContactSection = () => {
+  const t = useTranslations("Practice3");
+
   return (
     <section
       className="relative py-24 sm:py-32 bg-cover bg-center"
@@ -20,23 +23,23 @@ const ContactSection = () => {
         />
 
         <p className="font-semibold text-accent uppercase tracking-wider">
-          Free Case Evaluation
+          {t("contactSection.eyebrow")}
         </p>
         <h2 className="mt-2 text-4xl md:text-5xl font-bold text-gray-900">
-          Contact Us Today
+          {t("contactSection.title")}
         </h2>
         <a
-          href="tel:124545635"
+          href={`tel:${t("contactSection.phone")}`}
           className="mt-6 block text-3xl font-semibold text-gray-700 hover:text-gray-900 transition-colors"
         >
-          (1)245-45635
+          {t("contactSection.phone")}
         </a>
         <div className="mt-10">
           <Link
             href="#"
             className="inline-block rounded-full bg-accent px-8 py-4 text-lg font-semibold text-white shadow-md transition-colors"
           >
-            Make an appointment
+            {t("contactSection.cta")}
           </Link>
         </div>
       </div>

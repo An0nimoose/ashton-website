@@ -1,0 +1,314 @@
+{
+  "Hero": {
+    "title1": "Master lawyers",
+    "title2": "Mitigate and protect",
+    "desc": "Protecting with heart. Right by your side. Special needs require special lawyers.",
+    "appointment": "Make an appointment",
+    "caseStudies": "Case Studies"
+  },
+  "PracticeAreasSection": {
+    "quote": "At Ashton, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession, and all other important transitions.",
+    "signature": "John Corner",
+    "expertises": "Our Expertises",
+    "title": "Practice Areas",
+    "areas": [
+      "Acquisitions",
+      "Dispute Resolution",
+      "Pensions & Benefits",
+      "Health Care & Medical",
+      "National Security"
+    ]
+  },
+  "StatsSection": {
+    "achievements": [
+      { "value": "10M", "label": "Recovered Cost" },
+      { "value": "850+", "label": "Global Customers" },
+      { "value": "98%", "label": "Successful Cases" }
+    ],
+    "animatedWords": ["Achievement", "Success", "Stats"],
+    "partnersTitle": "Partners at Ashton",
+    "partnersDesc": "We specialised in family law divorce, civil partnerships",
+    "viewTeam": "View Our Team"
+  },
+  "PartnersSection": {
+    "title": "Partners at Ashton",
+    "desc": "We specialised in family law divorce, civil partnerships",
+    "viewTeam": "View Our Team",
+    "partners": [
+      { "name": "Alisia", "role": "Young" },
+      { "name": "Emile Heskey", "role": "Partner" },
+      { "name": "Angera Mark", "role": "Partner" },
+      { "name": "Steve Smith", "role": "Partner" }
+    ]
+  },
+  "CallToAction": {
+    "title1": "Legal",
+    "title2": "Questions?",
+    "title3": "We'll Take It From Here.",
+    "appointment": "Make an appointment"
+  },
+  "ConsultationSection": {
+    "expertises": "Our Expertises",
+    "title": "Free Consultation",
+    "desc": "We support businesses through periods of expansion, succession, and all other important transitions.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "service": "Service",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Make an appointment"
+    },
+    "services": [
+      "Mergers & Acquisitions",
+      "Dispute Resolution",
+      "Pensions & Benefits",
+      "Health Care",
+      "National Security Law"
+    ]
+  },
+  "Customers": {
+    "trustedBy": "Trusted by",
+    "title": "Our Customers",
+    "firmLogos": [
+      { "src": "/firmLogos/1.png", "alt": "Firm 1" },
+      { "src": "/firmLogos/2.png", "alt": "Firm 2" },
+      { "src": "/firmLogos/3.png", "alt": "Firm 3" },
+      { "src": "/firmLogos/4.png", "alt": "Firm 4" }
+    ],
+    "reviews": [
+      {
+        "text": "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil.",
+        "author": "Simon Doe",
+        "place": "MasterCard Co."
+      },
+      {
+        "text": "Authentic Cliche, schlitz narwhal post-ironic. Enamel pin vegan messenger bag you probably haven't heard of them, deep v banjo. Butcher meditation occupy cray.",
+        "author": "Charlie Love",
+        "place": "CostCo Inc."
+      },
+      {
+        "text": "Tattooed austin trust fund, subway tile vinyl butcher helvetica raclette. Normcore listicle gochujang, flannel whatever snackwave waistcoat tacos glossier.",
+        "author": "Johny Singa",
+        "place": "Amazon Inc."
+      }
+    ]
+  },
+  "Practice3": {
+    "hero": {
+      "eyebrow": "OUR SERVICES",
+      "title": "Practice Areas"
+    },
+    "partnerSection": {
+      "eyebrow": "PARTNERS AT ASHTON",
+      "heading": "Committed to Helping Our Clients Succeed",
+      "accordion": [
+        {
+          "title": "Mergers & Acquisitions",
+          "content": "Lawyer texting doesn't just benefit clients. It can also enhance overall efficiency at your firm by speeding up responses from clients."
+        },
+        {
+          "title": "Health Care & Medical",
+          "content": "Consequently, having more positive online reviews means you are more likely to show up where people are looking to."
+        },
+        {
+          "title": "National Security Law",
+          "content": "Lawyer texting can be an effective way to communicate with clients, but it’s also more complex than texting."
+        }
+      ],
+      "services": [
+        {
+          "title": "Criminal Law",
+          "icon": "/practiceAreas3/partnerSection/1.png"
+        },
+        {
+          "title": "Injury Compensation",
+          "icon": "/practiceAreas3/partnerSection/2.png"
+        },
+        {
+          "title": "Wills & Estates",
+          "icon": "/practiceAreas3/partnerSection/3.png"
+        },
+        {
+          "title": "Comercial Litigation",
+          "icon": "/practiceAreas3/partnerSection/4.png"
+        }
+      ]
+    },
+    "customerSection": {
+      "eyebrow": "Trusted By",
+      "title": "Trusted By Our Customers",
+      "reviews": [
+        {
+          "id": 1,
+          "text": "People who build their own home tend to be very courageous. These people are curious about life.",
+          "author": "Simon Doe",
+          "place": "MasterCard Co.",
+          "imageSrc": "/reviews/1.jpg"
+        },
+        {
+          "id": 2,
+          "text": "Authentic Cliche, schlitz narwhal post-ironic.",
+          "author": "Charlie Love",
+          "place": "CostCo Inc.",
+          "imageSrc": "/reviews/2.jpg"
+        },
+        {
+          "id": 3,
+          "text": "Tattooed austin trust fund, subway tile vinyl butcher helvetica raclette.",
+          "author": "Johny Singa",
+          "place": "Amazon Inc.",
+          "imageSrc": "/reviews/3.jpg"
+        }
+      ]
+    },
+    "contactSection": {
+      "eyebrow": "Free Case Evaluation",
+      "title": "Contact Us Today",
+      "phone": "(1)245-45635",
+      "cta": "Make an appointment"
+    }
+  },
+  "PortfolioGrid": {
+    "hero": {
+      "eyebrow": "Case Studies",
+      "title": "We build Relationships that inspire",
+      "animatedWords": ["Achievement", "Success", "Prosperity"]
+    },
+    "filters": [
+      { "label": "All", "slug": "all" },
+      { "label": "Accidental", "slug": "accidental" },
+      { "label": "Financial", "slug": "financial" },
+      { "label": "Government Law", "slug": "government-law" }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "imgSrc": "/portfolioGridOverlay/1.jpg",
+        "title": "Rules of Civil Procedure",
+        "subtitle": "Lending Law",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 2,
+        "imgSrc": "/portfolioGridOverlay/2.jpg",
+        "title": "Property & Real Estate",
+        "subtitle": "Investment Consulting",
+        "categories": ["financial", "government-law"]
+      },
+      {
+        "id": 3,
+        "imgSrc": "/portfolioGridOverlay/3.jpg",
+        "title": "Civil Litigation",
+        "subtitle": "Tax & Benefits",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 4,
+        "imgSrc": "/portfolioGridOverlay/4.jpg",
+        "title": "Unjust Dismissal",
+        "subtitle": "Private Fund",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 5,
+        "imgSrc": "/portfolioGridOverlay/5.jpg",
+        "title": "Duty to Accommodate",
+        "subtitle": "Retirement Law",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 6,
+        "imgSrc": "/portfolioGridOverlay/6.jpg",
+        "title": "The Labour Code",
+        "subtitle": "Construction Law",
+        "categories": ["accidental", "government-law"]
+      },
+      {
+        "id": 7,
+        "imgSrc": "/portfolioGridOverlay/7.jpg",
+        "title": "Labour Relations Board",
+        "subtitle": "Mergers & Acquisitions",
+        "categories": ["financial", "government-law"]
+      },
+      {
+        "id": 8,
+        "imgSrc": "/portfolioGridOverlay/8.jpg",
+        "title": "Assistance of Counsel",
+        "subtitle": "Franchising Law",
+        "categories": ["accidental", "financial"]
+      },
+      {
+        "id": 9,
+        "imgSrc": "/portfolioGridOverlay/9.jpg",
+        "title": "Forum non Convenient",
+        "subtitle": "Retail Law",
+        "categories": ["accidental", "financial"]
+      }
+    ],
+    "freeConsultation": {
+      "eyebrow": "We've worked with Global Clients",
+      "title": "Free Consultation",
+      "text": "In a professional context it often happens that private or corporate clients consider a publication to be made and presented with the actual content still not being ready.",
+      "cta": "Make an appointment",
+      "firmLogos": [
+        { "src": "/firmLogos/1.png", "alt": "Cacciola & gavel Law" },
+        { "src": "/firmLogos/2.png", "alt": "The Justice Law Firm" },
+        { "src": "/firmLogos/3.png", "alt": "Peterson Baker Attorneys" },
+        { "src": "/firmLogos/4.png", "alt": "Law Firm" }
+      ]
+    }
+  },
+  "Gallery": {
+    "stylesLabel": "GALLERY STYLES",
+    "grid": { "title": "Gallery Grid" },
+    "masonry": { "title": "Gallery Masonry" },
+    "horizontal": {
+      "title": "Gallery Horizontal",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "justified": { "title": "Gallery Justified" },
+    "lightbox": {
+      "resetZoom": "Reset Zoom",
+      "share": "Share",
+      "shareOn": "Share On",
+      "fullscreen": "Fullscreen",
+      "close": "Close"
+    }
+  },
+  "Layout": {
+    "phone": "(1)245-45635",
+    "hours": "Mon - Fri 09:00 - 17:00",
+    "email": "contact@ashton.com",
+    "logoAlt": "Ashton Law Logo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "back": "Back",
+    "newsletterPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "links": {
+      "practiceAreas": "Practice Areas",
+      "attorney": "Attorney",
+      "blog": "Blog",
+      "contact": "Contact Us",
+      "privacy": "Privacy Policy",
+      "legal": "Legal Agreement"
+    },
+    "cities": {
+      "ny": {
+        "title": "New York",
+        "addressLine1": "9712 West Road",
+        "cityLine": "Brooklyn,",
+        "postal": "NY 11208"
+      },
+      "sf": {
+        "title": "San Francisco",
+        "addressLine1": "501 3rd St",
+        "cityLine": "San Francisco",
+        "postal": "CA 94107"
+      }
+    },
+    "copyright": "© Copyright by Ashton lawyer WordPress"
+  }
+}

@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export const Footer = () => {
+  const t = useTranslations("Layout");
+
   return (
     <footer className="bg-footer-background text-neutral-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -9,7 +12,7 @@ export const Footer = () => {
           <div className="flex-shrink-0">
             <Image
               src="/logo.png"
-              alt="Ashton Law Logo"
+              alt={t("logoAlt")}
               width={180}
               height={72}
               className="h-auto"
@@ -21,7 +24,7 @@ export const Footer = () => {
               <form>
                 <input
                   type="email"
-                  placeholder="Your email address"
+                  placeholder={t("newsletterPlaceholder")}
                   className="w-full bg-white text-gray-900 px-5 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
                   aria-label="Email address for newsletter"
                 />
@@ -29,7 +32,7 @@ export const Footer = () => {
                   type="submit"
                   className="bg-accent text-white px-8 py-3 font-semibold rounded-full hover:opacity-90 transition-opacity mt-4"
                 >
-                  Subscribe
+                  {t("subscribe")}
                 </button>
               </form>
             </div>
@@ -41,7 +44,7 @@ export const Footer = () => {
                     href="/practice-areas"
                     className="hover:text-accent transition-colors"
                   >
-                    Practice Areas
+                    {t("links.practiceAreas")}
                   </Link>
                 </li>
                 <li>
@@ -49,7 +52,7 @@ export const Footer = () => {
                     href="/attorney"
                     className="hover:text-accent transition-colors"
                   >
-                    Attorney
+                    {t("links.attorney")}
                   </Link>
                 </li>
                 <li>
@@ -57,7 +60,7 @@ export const Footer = () => {
                     href="/blog"
                     className="hover:text-accent transition-colors"
                   >
-                    Blog
+                    {t("links.blog")}
                   </Link>
                 </li>
                 <li>
@@ -65,7 +68,7 @@ export const Footer = () => {
                     href="/contact"
                     className="hover:text-accent transition-colors"
                   >
-                    Contact Us
+                    {t("links.contact")}
                   </Link>
                 </li>
               </ul>
@@ -125,24 +128,28 @@ export const Footer = () => {
               </ul>
 
               <div>
-                <h4 className="font-bold text-white mb-3">New York</h4>
+                <h4 className="font-bold text-white mb-3">
+                  {t("cities.ny.title")}
+                </h4>
                 <address className="not-italic text-sm leading-relaxed text-neutral-400">
-                  9712 West Road
+                  {t("cities.ny.addressLine1")}
                   <br />
-                  Brooklyn,
+                  {t("cities.ny.cityLine")}
                   <br />
-                  NY 11208
+                  {t("cities.ny.postal")}
                 </address>
               </div>
 
               <div>
-                <h4 className="font-bold text-white mb-3">San Francisco</h4>
+                <h4 className="font-bold text-white mb-3">
+                  {t("cities.sf.title")}
+                </h4>
                 <address className="not-italic text-sm leading-relaxed text-neutral-400">
-                  501 3rd St
+                  {t("cities.sf.addressLine1")}
                   <br />
-                  San Francisco
+                  {t("cities.sf.cityLine")}
                   <br />
-                  CA 94107
+                  {t("cities.sf.postal")}
                 </address>
               </div>
             </div>
@@ -151,21 +158,19 @@ export const Footer = () => {
 
         <div className="border-t-2 border-white/20 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-neutral-400">
-            <p className="mb-4 sm:mb-0">
-              © Copyright by Ashton lawyer WordPress
-            </p>
+            <p className="mb-4 sm:mb-0">{t("copyright")}</p>
             <div className="flex items-center space-x-8">
               <Link
                 href="/privacy"
                 className="hover:text-white transition-colors"
               >
-                Privacy Policy
+                {t("links.privacy")}
               </Link>
               <Link
                 href="/legal"
                 className="hover:text-white transition-colors"
               >
-                Legal Agreement
+                {t("links.legal")}
               </Link>
             </div>
           </div>

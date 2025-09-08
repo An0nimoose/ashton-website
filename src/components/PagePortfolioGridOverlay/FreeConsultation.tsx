@@ -1,20 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const firmLogos = [
-  { src: "/firmLogos/1.png", alt: "Cacciola & gavel Law" },
-  { src: "/firmLogos/2.png", alt: "The Justice Law Firm" },
-  { src: "/firmLogos/3.png", alt: "Peterson Baker Attorneys" },
-  { src: "/firmLogos/4.png", alt: "Law Firm" },
-];
+import { useMessages } from "next-intl";
 
 const FreeConsultation = () => {
+  const msgs = useMessages();
+  const firmLogos = (msgs.PortfolioGrid?.freeConsultation?.firmLogos ?? []) as {
+    src: string;
+    alt: string;
+  }[];
   return (
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <p className="font-semibold text-gray-600">
-            We&apos;ve worked with Global Clients
+            {msgs.PortfolioGrid?.freeConsultation?.eyebrow}
           </p>
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-8 items-center">
             {firmLogos.map((logo) => (
@@ -41,23 +40,20 @@ const FreeConsultation = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mx-20">
-                Free Consultation
+                {msgs.PortfolioGrid?.freeConsultation?.title}
               </h2>
             </div>
 
             <div>
               <p className="text-lg text-gray-700">
-                In a professional context it often happens that private or
-                corporate clients consider a publication to be made and
-                presented with the actual content still not being ready. Think
-                of a news blog.
+                {msgs.PortfolioGrid?.freeConsultation?.text}
               </p>
               <div className="mt-8">
                 <Link
                   href="#"
                   className="inline-block rounded-full bg-accent px-8 py-4 text-lg font-semibold text-white transition-all"
                 >
-                  Make an appointment
+                  {msgs.PortfolioGrid?.freeConsultation?.cta}
                 </Link>
               </div>
             </div>

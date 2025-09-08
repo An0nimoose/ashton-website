@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 interface CardProps {
   title: string;
@@ -15,7 +15,7 @@ export const PracticeAreaCard = ({ title, imageSrc, href }: CardProps) => {
           src={imageSrc}
           alt={title}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           className="transition-transform duration-300 group-hover:scale-110"
         />
         <div className="absolute inset-0 flex items-end justify-end bg-opacity-10 p-4">

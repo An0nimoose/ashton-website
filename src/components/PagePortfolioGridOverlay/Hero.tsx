@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-
-const animatedWords = ["Achievement", "Success", "Prosperity"];
+import { useMessages } from "next-intl";
 
 const wordVariants: Variants = {
   hidden: { width: 0, transition: { duration: 0.5, ease: "easeInOut" } },
@@ -15,6 +14,10 @@ const wordVariants: Variants = {
 };
 
 const Hero = () => {
+  const msgs = useMessages();
+  const animatedWords = (msgs.PortfolioGrid?.hero?.animatedWords ?? [
+    "Achievement",
+  ]) as string[];
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
@@ -23,16 +26,16 @@ const Hero = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [animatedWords.length]);
 
   return (
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl text-center px-6 lg:px-8">
         <p className="font-semibold text-accent uppercase tracking-wider">
-          Case Studies
+          {msgs.PortfolioGrid?.hero?.eyebrow}
         </p>
         <h1 className="mt-4 text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-          We build Relationships that inspire{" "}
+          {msgs.PortfolioGrid?.hero?.title}{" "}
           <AnimatePresence mode="wait">
             <motion.span
               key={wordIndex}

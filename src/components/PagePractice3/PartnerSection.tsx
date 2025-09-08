@@ -4,45 +4,20 @@ import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
-
-const accordionItems = [
-  {
-    title: "Mergers & Acquisitions",
-    content:
-      "Lawyer texting doesn't just benefit clients. It can also enhance overall efficiency at your firm by speeding up responses from clients.",
-  },
-  {
-    title: "Health Care & Medical",
-    content:
-      "Consequently, having more positive online reviews means you are more likely to show up where people are looking to.",
-  },
-  {
-    title: "National Security Law",
-    content:
-      "Lawyer texting can be an effective way to communicate with clients, but it’s also more complex than texting.",
-  },
-];
-
-const serviceCards = [
-  {
-    title: "Criminal Law",
-    iconSrc: "/practiceAreas3/partnerSection/1.png",
-  },
-  {
-    title: "Injury Compensation",
-    iconSrc: "/practiceAreas3/partnerSection/2.png",
-  },
-  {
-    title: "Wills & Estates",
-    iconSrc: "/practiceAreas3/partnerSection/3.png",
-  },
-  {
-    title: "Comercial Litigation",
-    iconSrc: "/practiceAreas3/partnerSection/4.png",
-  },
-];
+import { useTranslations, useMessages } from "next-intl";
 
 const PartnerSection = () => {
+  const t = useTranslations("Practice3");
+  const msgs = useMessages();
+
+  const accordionItems = (msgs.Practice3?.partnerSection?.accordion ?? []) as {
+    title: string;
+    content: string;
+  }[];
+  const serviceCards = (msgs.Practice3?.partnerSection?.services ?? []) as {
+    title: string;
+    icon: string;
+  }[];
   return (
     <section className="relative bg-white pt-24 pb-12">
       <div className="absolute inset-x-0 top-0 h-[600px] bg-gray-50/70 rounded-b-[50%]" />
@@ -50,9 +25,11 @@ const PartnerSection = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="font-semibold text-gray-600">PARTNERS AT ASHTON</p>
+            <p className="font-semibold text-gray-600">
+              {t("partnerSection.eyebrow")}
+            </p>
             <h2 className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Committed to Helping Our Clients Succeed
+              {t("partnerSection.heading")}
             </h2>
           </div>
 
@@ -103,7 +80,7 @@ const PartnerSection = () => {
             >
               <div className="flex justify-center mb-4">
                 <Image
-                  src={card.iconSrc}
+                  src={card.icon}
                   alt={`${card.title} icon`}
                   width={64}
                   height={64}

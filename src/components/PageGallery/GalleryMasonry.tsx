@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Masonry from "@mui/lab/Masonry";
 import { Lightbox } from "./LightBox";
+import { useTranslations } from "next-intl";
 
 interface Image {
   id: number;
@@ -32,13 +33,15 @@ const GalleryMasonry = ({ images }: GalleryMasonryProps) => {
     document.body.style.overflow = "auto";
   };
 
+  const t = useTranslations("Gallery");
+
   return (
     <>
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Gallery Masonry
+              {t("masonry.title")}
             </h2>
           </div>
 

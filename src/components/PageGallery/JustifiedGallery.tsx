@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Lightbox } from "./LightBox";
+import { useTranslations } from "next-intl";
 
 interface Img {
   id: number;
@@ -65,13 +66,15 @@ const JustifiedGallery = ({
 
   let globalIndex = 0;
 
+  const t = useTranslations("Gallery");
+
   return (
     <>
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Gallery Justified
+              {t("justified.title")}
             </h2>
           </div>
         </div>

@@ -3,34 +3,20 @@
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useState, useEffect } from "react";
+import { useTranslations, useMessages } from "next-intl";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-
-const REVIEWS = [
-  {
-    id: 1,
-    text: "People who build their own home tend to be very courageous. These people are curious about life. They're thinking about what it means to live in a house, rather than just buying a commodity.",
-    author: "Simon Doe",
-    place: "MasterCard Co.",
-    imageSrc: "/reviews/1.jpg",
-  },
-  {
-    id: 2,
-    text: "Authentic Cliche, schlitz narwhal post-ironic. Enamel pin vegan messenger bag you probably haven't heard of them, deep v banjo. Butcher meditation occupy cray.",
-    author: "Charlie Love",
-    place: "CostCo Inc.",
-    imageSrc: "/reviews/2.jpg",
-  },
-  {
-    id: 3,
-    text: "Tattooed austin trust fund, subway tile vinyl butcher helvetica raclette. Normcore listicle gochujang, flannel whatever snackwave waistcoat tacos glossier.",
-    author: "Johny Singa",
-    place: "Amazon Inc.",
-    imageSrc: "/reviews/3.jpg",
-  },
-];
 
 const CustomerSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const t = useTranslations("Practice3");
+  const msgs = useMessages();
+  const REVIEWS = (msgs.Practice3?.customerSection?.reviews ?? []) as {
+    id?: number;
+    text: string;
+    author: string;
+    place?: string;
+    imageSrc?: string;
+  }[];
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -71,7 +57,7 @@ const CustomerSection = () => {
           <div className="relative lg:col-span-2 lg:-ml-24">
             <div className="bg-accent-secondary text-white rounded-2xl p-8 md:p-16 md:px-24">
               <h2 className="text-4xl md:text-5xl font-bold">
-                Trusted By <br /> Our Customers
+                {t("customerSection.title")}
               </h2>
 
               <div className="mt-8">
@@ -91,7 +77,7 @@ const CustomerSection = () => {
               <div className="mt-8 flex justify-between items-center">
                 <div className="flex items-center gap-4">
                   <Image
-                    src={REVIEWS[selectedIndex].imageSrc}
+                    src={REVIEWS[selectedIndex].imageSrc ?? "/reviews/1.jpg"}
                     alt={REVIEWS[selectedIndex].author}
                     width={60}
                     height={60}

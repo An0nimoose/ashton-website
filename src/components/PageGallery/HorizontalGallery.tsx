@@ -5,6 +5,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Lightbox } from "./LightBox";
+import { useTranslations } from "next-intl";
 
 interface Image {
   id: number;
@@ -44,13 +45,15 @@ const HorizontalGallery = ({ images }: HorizontalGalleryProps) => {
     [emblaApi]
   );
 
+  const t = useTranslations("Gallery");
+
   return (
     <>
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Gallery Horizontal
+              {t("horizontal.title")}
             </h2>
           </div>
         </div>
@@ -83,12 +86,14 @@ const HorizontalGallery = ({ images }: HorizontalGalleryProps) => {
           <button
             className="absolute top-1/2 left-4 md:left-8 rounded-full bg-white/80 p-3 text-gray-800 shadow-md hover:bg-white"
             onClick={scrollPrev}
+            title={t("horizontal.prev")}
           >
             <FiChevronLeft size={24} />
           </button>
           <button
             className="absolute top-1/2 right-4 md:right-8 rounded-full bg-white/80 p-3 text-gray-800 shadow-md hover:bg-white"
             onClick={scrollNext}
+            title={t("horizontal.next")}
           >
             <FiChevronRight size={24} />
           </button>

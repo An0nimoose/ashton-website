@@ -9,6 +9,7 @@ import {
   useInView,
   animate,
 } from "framer-motion";
+import { useMessages } from "next-intl";
 
 const AnimatedNumber = ({
   value,
@@ -73,12 +74,6 @@ const statImages = [
     size: "w-80 h-120",
   },
 ];
-const achievements = [
-  { value: "10M", label: "Recovered Cost" },
-  { value: "850+", label: "Global Customers" },
-  { value: "98%", label: "Successful Cases" },
-];
-const animatedWords = ["Achievement", "Success", "Stats"];
 const wordVariants: Variants = {
   hidden: { width: 0, transition: { duration: 0.5, ease: "easeInOut" } },
   visible: {
@@ -88,14 +83,21 @@ const wordVariants: Variants = {
 };
 
 export const StatsSection = () => {
+  const msgs = useMessages();
+  const animated = (msgs.StatsSection?.animatedWords ?? []) as string[];
+  const achievementsData = (msgs.StatsSection?.achievements ?? []) as {
+    value: string;
+    label: string;
+  }[];
+
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex((prevIndex) => (prevIndex + 1) % animatedWords.length);
+      setWordIndex((prevIndex) => (prevIndex + 1) % animated.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [animated.length]);
 
   return (
     <section className="bg-white py-8 sm:py-32">
@@ -159,7 +161,7 @@ export const StatsSection = () => {
                         exit="hidden"
                         className="inline-block text-accent border-r-2 border-black"
                       >
-                        {animatedWords[wordIndex]}
+                        {animated[wordIndex]}
                       </motion.span>
                     </AnimatePresence>
                   </div>
@@ -174,7 +176,7 @@ export const StatsSection = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center text-center gap-8 sm:gap-12">
-                {achievements.map((ach) => (
+                {achievementsData.map((ach) => (
                   <div key={ach.label}>
                     <AnimatedNumber
                       value={ach.value}
